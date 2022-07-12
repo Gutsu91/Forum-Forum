@@ -1,4 +1,4 @@
-const urlApi = 'http://localhost:8888/forum-ClientAPI/';
+const urlApi = 'http://localhost/Forum-API/';
 const catList = document.querySelector('main')
 
 //listing des catégories

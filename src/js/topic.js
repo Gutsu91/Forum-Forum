@@ -1,4 +1,4 @@
-const urlApi = 'http://localhost:8888/forum-ClientAPI/';
+const urlApi = 'http://localhost/Forum-API/';
 const topicContent = document.querySelector('main');
 const title = document.querySelector('title');
 const h1 = document.querySelector('h1');
