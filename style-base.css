@@ -1,0 +1,147 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  min-width: 800px;
+  align-items: center;
+  background-color: lightgrey;
+  opacity: 0.8;
+}
+
+nav ul {
+  list-style-type: none;
+}
+
+header ul li {
+  display: inline;
+  padding: 2rem;
+}
+
+h1 {
+  padding-left: 2rem;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  background-color: brown;
+  opacity: 0.8;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  height: 3rem;
+  align-items: center;
+  padding: 0 2rem;
+}
+.message {
+  display: flex;
+  border: 1px solid black;
+  border-collapse: collapse;
+  margin-top: -1px;
+}
+
+.left-column {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  border-right: 1px solid black;
+}
+.right-column {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}
+
+.denom {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  padding: 2rem;
+}
+.denom div {
+  border: 1px solid black;
+  width: 33%;
+  padding: 1rem;
+}
+
+.topicList {
+  width: 90%;
+  padding: 2rem;
+}
+.topic {
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  margin-top: -1px;
+}
+.topic div {
+  display: flex;
+  flex-direction: column;
+  width: 33%;
+  padding: 1rem;
+  border-right: 1px solid black;
+}
+
+  .topic div:last-child {
+    border-right: none;
+}
+
+.main {
+  width: 90%;
+  margin: 0 auto;
+  border: 1px solid black;
+}
+
+.category {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid black;
+  align-items: center;
+}
+
+.category h2 {
+  width: 30%;
+  padding: 1rem;
+}
+.category div {
+  width: 30%;
+}
+
+.easterEgg {
+  opacity: 0.2;
+  pointer-event: none;
+  cursor: default;
+}
+
+.easterEgg:hover{
+  font-size: 2rem;
+  opacity: 1;
+}
+
+.arianne {
+  margin-bottom: 2rem;
+}
+
+.email {
+  display: flex;
+  flex-direction: column;
+}
+
+.messages {
+  padding: 1rem;
+  border-bottom: 1px solid grey;
+}
+
+.messages:last-child {
+  border-bottom: none;
+}
+
+.message-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-message {
+  padding: 1rem 0;
+}

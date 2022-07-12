@@ -1,27 +1,35 @@
 const urlApi = 'http://localhost/Forum-API/';
 const topicList = document.querySelector('.topicList');
 const title = document.querySelector('title')
+const h1 = document.querySelector('h1');
+const arianne = document.querySelector('.arianne');
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const idCat = urlParams.get('id_category');
+console.log(idCat)
 
 //listing des catégories
-fetch(urlApi + 'topic')
+fetch(urlApi + 'category/' + idCat)
 .then (response => response.json())
 .then (response => {
-  console.log(response)
+  console.log(response);
   // definir balise title ici: title.innerHTML = 'foo'
-  let template =''
+  h1.innerHTML = response.data[0]['name_category']
+  arianne.innerHTML = `<a href="index.html">Accueil  </a><span>   >>>   </span><span> ${response.data[0]['name_category']} </span> `
+  let template ='';
   response.data.forEach(topic => {
     template += `
-    <article>
+    <article class="topic">
       <div>
-        <span>${topic.topic_name}</span>
-        <span>Par User<!--${topic.id_user} ramener nom du user ici--> </span>
+        <span><a href="./topic.html?id_topic=${topic.id_topic}">${topic.topic_name}</a></span>
+        <span>Par <a href="">${topic.user_name}</a> </span>
       </div>
       <div>
-        <span>42</span>
+        <span>${topic.nb_message}</span>
       </div>
       <div>
         <a href="#">User</a>
-        <span>à [heure]</span>
+        <span>à ${topic.latest}</span>
       </div>
     </article>
     `
@@ -29,4 +37,3 @@ fetch(urlApi + 'topic')
   topicList.innerHTML = template
 })
 .catch(error => console.log(error))
-console.log('foo')

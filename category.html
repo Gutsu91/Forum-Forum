@@ -5,53 +5,58 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Catégorie</title>
+
+  <link rel="stylesheet" href="style-base.css">
 </head>
 <body>
   <header>
     <nav>
       <a href="index.html">Forum Cepegra</a>
       <ul>
-        <li><a href="category.html">Voir la page catégorie</a></li>
-        <li><a href="topic.html">Voir la page topic</a></li>
+        <li><a href="category.html?id_category=1">Voir la page catégorie</a></li>
+        <li><a href="topic.html?id_topic=1">Voir la page topic</a></li>
+        <li><a href="user.html?id_user=1">Voir la page user</a></li>
       </ul>
     </nav>
   </header>
   <main>
-    <section>
-      <span>Sujet</span>
-      <span>Messages</span>
-      <span>Dernière réponse</span>
+    <div class="arianne"></div>
+    <h1>Nom de la catégorie</h1>
+    <section class="denom">
+      <div>Sujet</div>
+      <div>Messages</div>
+      <div>Dernière réponse</div>
     </section>
     <section class="topicList"> 
       <article>
         <div>
-          <span>Nom du sujet</span>
+          <span><a href="">Nom du sujet</a></span>
           <span>Par <a href="#">Username</a></span>
         </div>
         <div><span>42</span></div>
-        <div><a href="#">User</a> à [heure]</div>
+        <div><a href="#">User</a><span>à [heure]</span></div>
       </article>
       <article>
         <div>
-          <span>Nom du sujet</span>
+          <span><a href="">Nom du sujet</a></span>
           <span>Par <a href="#">Username</a></span>
         </div>
         <div><span>42</span></div>
-        <div><a href="#">User</a> à [heure]</div>
+        <div><a href="#">User</a><span>à [heure]</span></div>
       </article>
       <article>
         <div>
-          <span>Nom du sujet</span>
+          <span><a href="">Nom du sujet</a></span>
           <span>Par <a href="#">Username</a></span>
         </div>
         <div><span>42</span></div>
-        <div><a href="#">User</a> à [heure]</div>
+        <div><a href="#">User</a><span>à [heure]</span></div>
       </article>
     </section>
   </main>
   <footer>
     <span>&copy 2022 - Bebougra</span>
-    <a>Wazaaaah</a>
+    <a class="easterEgg">Wazaaaah</a>
   </footer>
  <script src="./src/js/category.js"></script>
 </body>

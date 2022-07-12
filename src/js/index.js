@@ -1,5 +1,5 @@
 const urlApi = 'http://localhost/Forum-API/';
-const catList = document.querySelector('main')
+const catList = document.querySelector('.main')
 
 //listing des catégories
 fetch(urlApi + 'category')
@@ -9,15 +9,15 @@ fetch(urlApi + 'category')
     let template = ''
     response.data.forEach(category => {
         template += `
-        <section data-catID="${category.id_category}">
-        <h1>${category.name_category}</h1>
+        <section data-catID="${category.id_category}" class="category">
+          <h2><a href="./category.html?id_category=${category.id_category}">${category.name_category}</a></h2>
           <div>
-            <p> Nombre de sujets : ${category.nbhits}<!-- ramener le nombre de topics dans la réponse get de category --></p>
-            <p> Nombre de messages : </p>
+            <p> Sujets : ${category.nb_topic}</p>
+            <p> Lessages : ${category.nb_message}</p>
           </div>
           <div>
-            <p><a href="#"> Nom du dernier sujet</a></p>
-            <p><a href="#"> Pseudo</a> à [heure]</p>
+            <p><a href="./topic.html?id_topic=${category.id_topic}">${category.topic_name}</a></p>
+            <p><a href="./topic.html?id_topic=${category.id_topic}"> Pseudo</a> à ${category.max_message}</p>
           </div>
         </section>
         `
