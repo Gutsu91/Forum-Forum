@@ -22,7 +22,7 @@ h1 {
 }
 
 footer {
-  position: fixed;
+  position: relative;
   bottom: 0;
   background-color: brown;
   opacity: 0.8;
@@ -32,6 +32,8 @@ footer {
   height: 3rem;
   align-items: center;
   padding: 0 2rem;
+  left: 50%;
+  transform:translateX(-50%);
 }
 .message {
   display: flex;
@@ -86,6 +88,11 @@ footer {
     border-right: none;
 }
 
+main{
+  margin-bottom: 2rem;
+  min-height: 80vh;
+  margin-bottom: 4rem;
+}
 .main {
   width: 90%;
   margin: 0 auto;
