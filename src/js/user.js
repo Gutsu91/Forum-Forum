@@ -15,7 +15,7 @@ fetch(urlApi + 'user/' + idUser)
   console.log(response)
   let template =''
   h1.innerHTML = 'Profil de ' + response.data[0]['user_name']
-  arianne.innerHTML =`<a href="index.html">Accueil  </a><span>   >>>   <span>Profil de ${response.data[0]['user_name']}`
+  arianne.innerHTML =`<a href="index.html">Accueil  </a><span> ⇢ <span>Profil de ${response.data[0]['user_name']}`
   leftColumn.innerHTML = `
     <div class="email"> 
       <span>Email :</span> 

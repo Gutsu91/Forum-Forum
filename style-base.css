@@ -17,6 +17,10 @@ header ul li {
   padding: 2rem;
 }
 
+.arianne span {
+  white-space: pre-wrap;
+}
+
 h1 {
   padding-left: 2rem;
 }
@@ -57,18 +61,20 @@ footer {
 .denom {
   display: flex;
   justify-content: space-between;
-  width: 90%;
-  padding: 2rem;
+  border: 1px solid black;
 }
 .denom div {
-  border: 1px solid black;
+  border-right: 1px solid black;
   width: 33%;
   padding: 1rem;
+}
+.denom div:last-child{
+  border-right: none;
 }
 
 .topicList {
   width: 90%;
-  padding: 2rem;
+  padding: 1rem 2rem;
 }
 .topic {
   border: 1px solid black;
@@ -151,4 +157,53 @@ main{
 
 .user-message {
   padding: 1rem 0;
+}
+
+.button-creation {
+  margin: 2rem;
+}
+
+.button {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 0.6rem 1.2rem;
+}
+
+.writeMessage {
+  min-height: 300px;
+  min-width: 300px;
+  margin: 0 auto;
+  border: 1px solid black;
+  padding: 1rem;
+}
+
+.messageFromTopic {
+  min-height: 300px;
+  min-width: 300px;
+  margin: 0 auto;
+  border: 1px solid black;
+  padding: 1rem;
+  margin-top: 4rem;
+}
+
+.form-message {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-message * {
+  margin: 1rem;
+}
+.form-button-wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+
+.form-button {
+  margin: 0 auto;
+  width: 25%;
+}
+.column-reverse {
+  display:flex;
+  flex-direction: column-reverse;
 }

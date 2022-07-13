@@ -6,6 +6,7 @@ const arianne = document.querySelector('.arianne');
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const idCat = urlParams.get('id_category');
+const button = document.querySelector('.button');
 console.log(idCat)
 
 //listing des catégories
@@ -15,8 +16,12 @@ fetch(urlApi + 'category/' + idCat)
   console.log(response);
   // definir balise title ici: title.innerHTML = 'foo'
   h1.innerHTML = response.data[0]['name_category']
-  arianne.innerHTML = `<a href="index.html">Accueil  </a><span>   >>>   </span><span> ${response.data[0]['name_category']} </span> `
-  let template ='';
+  arianne.innerHTML = `<a href="index.html">Accueil</a><span> ⇢ </span><span> ${response.data[0]['name_category']} </span> `
+  let template =`<section class="denom">
+  <div>Sujet</div>
+  <div>Messages</div>
+  <div>Dernière réponse</div>
+</section>`;
   response.data.forEach(topic => {
     template += `
     <article class="topic">
@@ -37,3 +42,8 @@ fetch(urlApi + 'category/' + idCat)
   topicList.innerHTML = template
 })
 .catch(error => console.log(error))
+
+button.addEventListener('click', e => {
+  e.preventDefault()
+  window.location.href = `./message.html?id_category=${idCat}&id_user=3`
+})

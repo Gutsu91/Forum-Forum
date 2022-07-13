@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Topic</title>
+  <title>Forum Cepegra</title>
 
   <link rel="stylesheet" href="style-base.css">
 </head>
@@ -21,30 +21,26 @@
   </header>
   <main>
     <div class="arianne"></div>
-    <h1>Nom du topic</h1>
-    <aside class="button-creation">
-      <a href="message.html" class="create-topic button">Créer un sujet</a>
-      <a href="message.html" class="answer-topic button">Répondre au sujet</a>
-    </aside>
-    <div class="main">
-      <div>
-        <span>User</span>
-        <span>Number of message</span>
+    <h1>Hello, world!</h1>
+    <section class="writeMessage">
+      <form action="" method="post" class="form-message">
+        <input type="text" class="message-title">
+        <textarea rows="10" class="user-message"></textarea>
+        <div class="form-button-wrapper">
+        <input type="reset" value="Réinitialiser" class="form-button reset">
+        <input type="submit" value="Confirmer" class="form-button submit">
       </div>
-      <div>
-        <span>Date</span>
-        <span>Contenu du message</span>
-      </div>
-    </div>
+      </form>
+    </section>
+    <section class="messageFromTopic">
+      <h3>Revue du sujet :</h3>
+      <div class="main"></div>
+    </section>
   </main>
-  <aside class="button-creation">
-    <a href="message.html" class="create-topic button">Créer un sujet</a>
-    <a href="message.html" class="answer-topic button">Répondre au sujet</a>
-  </aside>
   <footer>
     <span>&copy 2022 - Bebougra</span>
     <a class="easterEgg">Wazaaaah</a>
   </footer>
-  <script src="./src/js/topic.js"></script>
 </body>
+<script src="./src/js/message.js"></script>
 </html>

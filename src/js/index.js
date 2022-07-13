@@ -13,7 +13,7 @@ fetch(urlApi + 'category')
           <h2><a href="./category.html?id_category=${category.id_category}">${category.name_category}</a></h2>
           <div>
             <p> Sujets : ${category.nb_topic}</p>
-            <p> Lessages : ${category.nb_message}</p>
+            <p> Messages : ${category.nb_message}</p>
           </div>
           <div>
             <p><a href="./topic.html?id_topic=${category.id_topic}">${category.topic_name}</a></p>
