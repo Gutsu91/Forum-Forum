@@ -6,8 +6,48 @@ const h1 = document.querySelector('h1');
 const arianne = document.querySelector('.arianne');
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
-const idUser = urlParams.get('id_user');
-console.log(idUser);
+const idUser = sessionStorage.getItem('id_user')
+const connectLink = document.querySelector('.connectLink')
+const statusMessage = document.querySelector('.statusMessage')
+
+
+sessionStorage.getItem('id_user') === null 
+? sessionStorage.setItem('id_user',3)
+: console.log('ok')
+
+// on modifie le header en fonction du statut connecté ou non
+if (sessionStorage.getItem('id_user') != 3 || sessionStorage.getItem('id_user') === null) {
+  connectLink.innerHTML = `
+<li><a href="./user.html?id_user=${idUser}">Mon profil</a></li>
+<li><a href="" class="deconnexion">Déconnexion</a></li>
+`
+}
+
+//On gère les clicks sur les liens connection /deconnection
+//Si lien = connection -> on stock l'url depuis laquelle l'utilisateur a clické sur connection
+connectLink.addEventListener('click', e => {
+  if(e.target.classList.contains('connexion')) {
+    e.preventDefault()
+    const currentUrl = window.location.href
+    sessionStorage.setItem('connectUrl', currentUrl)
+    window.location.href = './connect.html'
+  } else if(e.target.classList.contains('deconnexion')) {
+    e.preventDefault()
+    console.log('foo')
+    fetch(urlApi + 'deconnect')
+    .then(response => response.json())
+    .then(response => {
+      console.log(response)
+      sessionStorage.removeItem('token')
+      sessionStorage.removeItem('id_user')
+      sessionStorage.setItem('id_user', 3)
+      statusMessage.innerHTML = 'Vous êtes bien déconnectés. Vous allez être redirigé'
+      statusMessage.classList.add('messageSuccess')
+      location.reload()
+    })
+    .catch(error=>console.log(error))
+  }
+  }) 
 
 fetch(urlApi + 'user/' + idUser)
 .then(response => response.json())

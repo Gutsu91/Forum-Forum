@@ -11,9 +11,49 @@ const messageTitle = document.querySelector('.message-title')
 const form = document.querySelector('.form-message')
 const idCat = parseInt(urlParams.get('id_category'))
 const userMessage = document.querySelector('.user-message');
+const connectLink = document.querySelector('.connectLink')
+const idUser = sessionStorage.getItem('id_user')
+const statusMessage = document.querySelector('.statusMessage')
+
+sessionStorage.getItem('id_user') === null 
+? sessionStorage.setItem('id_user',3)
+: console.log('ok')
+
+//On gère les clicks sur les liens connection /deconnection
+//Si lien = connection -> on stock l'url depuis laquelle l'utilisateur a clické sur connection
+connectLink.addEventListener('click', e => {
+  if(e.target.classList.contains('connexion')) {
+    e.preventDefault()
+    const currentUrl = window.location.href
+    sessionStorage.setItem('connectUrl', currentUrl)
+    window.location.href = './connect.html'
+  } else if(e.target.classList.contains('deconnexion')) {
+    e.preventDefault()
+    console.log('foo')
+    fetch(urlApi + 'deconnect')
+    .then(response => response.json())
+    .then(response => {
+      console.log(response)
+      sessionStorage.removeItem('token')
+      sessionStorage.removeItem('id_user')
+      sessionStorage.setItem('id_user', 3)
+      statusMessage.innerHTML = 'Vous êtes bien déconnectés. Vous allez être redirigé'
+      statusMessage.classList.add('messageSuccess')
+      location.reload()
+    })
+    .catch(error=>console.log(error))
+  }
+  }) 
+
+  // on modifie le header en fonction du statut connecté ou non
+if (sessionStorage.getItem('id_user') != 3 || sessionStorage.getItem('id_user') === null) {
+  connectLink.innerHTML = `
+<li><a href="./user.html?id_user=${idUser}">Mon profil</a></li>
+<li><a href="" class="deconnexion">Déconnexion</a></li>
+`
+}
 
 /* créer un message */
-
 const createTopic = () => {
   console.log('on crée un topic')
   h1.innerHTML = 'Créer un nouveau sujet'

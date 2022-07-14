@@ -4,8 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Topic</title>
-
+  <title>Connexion</title>
   <link rel="stylesheet" href="style-base.css">
 </head>
 <body>
@@ -19,20 +18,18 @@
   </header>
   <aside class="statusMessage"></aside>
   <main>
-    <div class="arianne"></div>
-    <h1>Profil de ""</h1>
-    <div class="main message">
-      <div class="left-column">
-        <span>Sujets :</span>
-        <span>Messages :</span>
-      </div>
-      <div class="right-column messList">aaa</div>
-    </div>
+    <h1>Se connecter</h1>
+    <form action="" method="POST" class="form-connect">
+      <input type="text" class="input-user_name" placeholder="votre pseudo">
+      <input type="password" class="input-password" placeholder="votre mot de passe">
+      <input type="submit" value="connexion" class="input-submit">
+      <input type="hidden" action="ident">
+    </form>
   </main>
   <footer>
     <span>&copy 2022 - Bebougra</span>
     <a class="easterEgg">Wazaaaah</a>
   </footer>
-  <script src="./src/js/user.js"></script>
 </body>
+<script src="./src/js/connect.js"></script>
 </html>

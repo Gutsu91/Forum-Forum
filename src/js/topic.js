@@ -9,8 +9,46 @@ const idTopic = urlParams.get('id_topic');
 const createTopic = document.querySelector('.create-topic');
 const answerTopic = document.querySelector('.answer-topic')
 const button = document.querySelector('.button-creation');
+const connectLink = document.querySelector('.connectLink')
+const idUser = sessionStorage.getItem('id_user')
+const statusMessage = document.querySelector('.statusMessage')
 let idCat = ''
-let idUser =''
+
+
+sessionStorage.getItem('id_user') === null 
+? sessionStorage.setItem('id_user',3)
+: console.log('ok')
+
+if (sessionStorage.getItem('id_user') != 3 || sessionStorage.getItem('id_user') === null) {
+  connectLink.innerHTML = `
+<li><a href="./user.html?id_user=${idUser}">Mon profil</a></li>
+<li><a href="" class="deconnexion">Déconnexion</a></li>
+`
+}
+
+connectLink.addEventListener('click', e => {
+  if(e.target.classList.contains('connexion')) {
+    e.preventDefault()
+    const currentUrl = window.location.href
+    sessionStorage.setItem('connectUrl', currentUrl)
+    window.location.href = './connect.html'
+  } else if(e.target.classList.contains('deconnexion')) {
+    e.preventDefault()
+    console.log('foo')
+    fetch(urlApi + 'deconnect')
+    .then(response => response.json())
+    .then(response => {
+      console.log(response)
+      sessionStorage.removeItem('token')
+      sessionStorage.removeItem('id_user')
+      sessionStorage.setItem('id_user', 3)
+      statusMessage.innerHTML = 'Vous êtes bien déconnectés. Vous allez être redirigé'
+      statusMessage.classList.add('messageSuccess')
+      location.reload()
+    })
+    .catch(error=>console.log(error))
+  }
+  }) 
 
 //listing des messages
 fetch(urlApi + 'topic/' + idTopic)
